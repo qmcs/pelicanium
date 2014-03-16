@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+{% block featured %}
+  <section>
+    <h2>{{ author }}</h2>
+    <p>
+      {{ authors_info.get(author).content }}
+    </p>
+    <hr>
+  </section>
+{% endblock %}

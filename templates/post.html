@@ -1,0 +1,17 @@
+<article class="post-item post tag-docs" role="article" itemtype="http://schema.org/BlogPosting" itemscope="">
+  <header class="post-item-header">
+    <h2 class="post-item-title" itemprop="name">
+      <a title="{{ article.title }}" data-pjax="" itemprop="url" href="{{ SITEURL }}/{{ article.url }}">
+        {{ article.title }}
+      </a>
+    </h2>
+  </header>
+  <section class="post-item-excerpt" itemprop="description">
+    <p>
+      {{ article.summary }}
+    </p>
+  </section>
+  <footer class="post-item-footer">
+    {% include 'post_item_list.html' %}
+  </footer>
+</article>

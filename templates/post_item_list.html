@@ -1,0 +1,18 @@
+<ul class="post-meta-list">
+  <li class="post-meta-item">
+    <time datetime="{{ article.date.isoformat() }}" itemprop="datePublished">
+      {{ article.locale_date }}
+    </time>
+  </li>
+  <li class="post-meta-item">
+    {% for tag in article.tags %}
+      <span itemprop="keywords"><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></span>
+    {% endfor %}
+  </li>
+
+  {% if DISQUS_SITENAME %}
+    <li class="post-meta-item">
+      <a href="{{ SITEURL }}/{{ article.url }}#disqus_thread">Comments</a>.
+  </li>
+  {% endif %}
+</ul>

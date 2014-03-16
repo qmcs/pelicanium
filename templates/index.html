@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block content %}
+
+    {% block featured %}{% endblock %}
+
+    <section class="post-list">
+      {% for article in articles_page.object_list %}
+        {% include 'post.html' %}
+      {% endfor%}
+    </section>
+
+    {% include 'pagination.html' %}
+
+    {#{> footer this}#}
+
+{% endblock content %}
