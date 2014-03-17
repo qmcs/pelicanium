@@ -5,93 +5,89 @@
 <section class="wrapper wrapper-post">
   <div class="wrapper-container">
     <article itemscope itemtype="http://schema.org/BlogPosting" role="article" class="post {#{post_class}#}">
-      {#{#post}#}
-        {% set author_bibliography = authors_info.get(article.author) %}
-        <section class="post-container">
-          <header class="post-header">
-            {% include 'post_item_list.html' %}
-            <h1 itemprop="name headline" class="post-title"><a href="{{ SITEURL }}/{{ article.url }}" itemprop="url" data-pjax title="{{ article.title|striptags }}">{{ article.title }}</a></h1>
-            {#{! A subtitle not available in Ghosts yet }#}
-            <!--h2 itemprop="about" class="post-subtitle"></h2-->
-          </header>
-          <aside class="post-side">
-            <div class="post-author">
-              {% if 'cover-image' in author_bibliography.metadata %}
-                <a href="{{ SITEURL }}/{{ article.author.url }}" class="post-author-avatar">
-                  <img src="{{ SITEURL }}/{{ author_bibliography.metadata['cover-image'] }}" alt="{{article.author}}">
-                </a>
-              {% endif %}
-              <div class="post-author-info">
-                <a href="{{ SITEURL }}/{{ article.author.url }}" class="post-author-name">
-                  {{ article.author }}
-                </a>
-                <p class="post-author-bio">{{ author_bibliography.content }}</p>
-              </div>
+      {% set author_bibliography = authors_info.get(article.author) %}
+      <section class="post-container">
+        <header class="post-header">
+          {% include 'post_item_list.html' %}
+          <h1 itemprop="name headline" class="post-title"><a href="{{ SITEURL }}/{{ article.url }}" itemprop="url" data-pjax title="{{ article.title|striptags }}">{{ article.title }}</a></h1>
+          {#{! A subtitle not available in Ghosts yet }#}
+          <!--h2 itemprop="about" class="post-subtitle"></h2-->
+        </header>
+        <aside class="post-side">
+          <div class="post-author">
+            {% if 'cover-image' in author_bibliography.metadata %}
+              <a href="{{ SITEURL }}/{{ article.author.url }}" class="post-author-avatar">
+                <img src="{{ SITEURL }}/{{ author_bibliography.metadata['cover-image'] }}" alt="{{article.author}}">
+              </a>
+            {% endif %}
+            <div class="post-author-info">
+              <a href="{{ SITEURL }}/{{ article.author.url }}" class="post-author-name">
+                {{ article.author }}
+              </a>
+              <p class="post-author-bio">{{ author_bibliography.content }}</p>
             </div>
-          </aside>
-          <div itemprop="articleBody" class="post-body">
-            {{ article.content }}
           </div>
-          <footer class="post-footer">
-            <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="post-author">
-              {% if 'cover-image' in author_bibliography.metadata %}
-                <a href="{{ SITEURL }}/{{ article.author.url }}" class="post-author-avatar">
-                  <img src="{{ SITEURL }}/{{ author_bibliography.metadata['cover-image'] }}" alt="{{article.author}}">
+        </aside>
+        <div itemprop="articleBody" class="post-body">
+          {{ article.content }}
+        </div>
+        <footer class="post-footer">
+          <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="post-author">
+            {% if 'cover-image' in author_bibliography.metadata %}
+              <a href="{{ SITEURL }}/{{ article.author.url }}" class="post-author-avatar">
+                <img src="{{ SITEURL }}/{{ author_bibliography.metadata['cover-image'] }}" alt="{{article.author}}">
+              </a>
+            {% endif %}
+            <div class="post-author-info">
+              <h4 class="post-footer-heading">Written By</h4>
+
+              <a href="{{ SITEURL }}/{{ article.author.url }}" itemprop="url" class="post-author-name">
+                <span itemprop="name">{{ article.author }}</span>
+              </a>
+
+              <p itemprop="description" class="post-author-bio">{{ author_bibliography.content }}</p>
+
+              {% if 'homepage' in author_bibliography.metadata %}
+              <p class="post-author-website">
+                <a rel="nofollow" href="{{ author_bibliography.metadata['homepage'] }}">
+                  {{ author_bibliography.metadata['homepage'] }}
                 </a>
+              </p>
               {% endif %}
-              <div class="post-author-info">
-                <h4 class="post-footer-heading">Written By</h4>
 
-                <a href="{{ SITEURL }}/{{ article.author.url }}" itemprop="url" class="post-author-name">
-                  <span itemprop="name">{{ article.author }}</span>
-                </a>
+              <p class="post-info">
+                <b class="post-info-title">Published on</b>
+                <time datetime="{{ article.date.isoformat() }}" class="post-date">
+                  {{ article.locale_date }}
+                </time>
+              </p>
 
-                <p itemprop="description" class="post-author-bio">{{ author_bibliography.content }}</p>
-
-                {% if 'homepage' in author_bibliography.metadata %}
-                <p class="post-author-website">
-                  <a rel="nofollow" href="{{ author_bibliography.metadata['homepage'] }}">
-                    {{ author_bibliography.metadata['homepage'] }}
-                  </a>
-                </p>
-                {% endif %}
-
-                <p class="post-info">
-                  <b class="post-info-title">Published on</b>
-                  <time datetime="{{ article.date.isoformat() }}" class="post-date">
-                    {{ article.locale_date }}
-                  </time>
-                </p>
-
-              </div>
             </div>
-            <div class="post-social">
-              <h4 class="post-footer-heading">Spread the word</h4>
-              <a href="#" data-action="share-twitter"><i class="fa fa-fw fa-lg fa-twitter"></i></a>
-              <a href="#" data-action="share-facebook"><i class="fa fa-fw fa-lg fa-facebook"></i></a>
-              <a href="#" data-action="share-gplus"><i class="fa fa-fw fa-lg fa-google-plus"></i></a>
-            </div>
-          </footer>
+          </div>
+          <div class="post-social">
+            <h4 class="post-footer-heading">Spread the word</h4>
+            <a href="#" data-action="share-twitter"><i class="fa fa-fw fa-lg fa-twitter"></i></a>
+            <a href="#" data-action="share-facebook"><i class="fa fa-fw fa-lg fa-facebook"></i></a>
+            <a href="#" data-action="share-gplus"><i class="fa fa-fw fa-lg fa-google-plus"></i></a>
+          </div>
+        </footer>
+      </section>
+
+      {#% if DISQUS_SITENAME and SITEURL and article.status != "draft" %#}
+      {% if DISQUS_SITENAME and article.status != "draft" %}
+        <section class="post-comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+            var disqus_identifier = "{{ article.url }}";
+            var disqus_url = "{{ SITEURL }}/{{ article.url }}";
+            (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+          </script>
         </section>
-
-        {#% if DISQUS_SITENAME and SITEURL and article.status != "draft" %#}
-        {% if DISQUS_SITENAME and article.status != "draft" %}
-          <section class="post-comments">
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-              var disqus_identifier = "{{ article.url }}";
-              var disqus_url = "{{ SITEURL }}/{{ article.url }}";
-              (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-              })();
-            </script>
-          </section>
-        {% endif %}
-
-
-      {#{/post}#}
+      {% endif %}
     </article>
 
     {#{> footer this}#}
