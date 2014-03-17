@@ -70,13 +70,26 @@
 
           {% for title, link in MENUITEMS %}
             <li class="drawer-list-item">
-              <a data-pjax="" href="{{ link }}">
+              <a data-pjax="" href="{{ SITEURL }}/{{ link }}">
                 <i class="fa fa-file"></i>{{ title }}
               </a>
             </li>
           {% endfor %}
 
           <li class="drawer-list-divider"></li>
+
+          {% if DISPLAY_PAGES_ON_MENU -%}
+            <li class="drawer-list-item drawer-list-title">Pages</li>
+            {% for pg in PAGES %}
+              <li class="drawer-list-item">
+                <a href="{{ SITEURL }}/{{ pg.url }}">
+                  <i class="fa fa-file"></i>{{ pg.title }}
+                </a>
+              </li>
+            {% endfor %}
+            <li class="drawer-list-divider"></li>
+          {% endif %}
+
 
           <li class="drawer-list-item drawer-list-title">Follow me</li>
           {% for title, link in SOCIAL %}
