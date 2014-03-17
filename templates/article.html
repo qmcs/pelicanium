@@ -15,9 +15,9 @@
         </header>
         <aside class="post-side">
           <div class="post-author">
-            {% if 'cover-image' in author_bibliography.metadata %}
+            {% if author_bibliography.cover_image %}
               <a href="{{ SITEURL }}/{{ article.author.url }}" class="post-author-avatar">
-                <img src="{{ SITEURL }}/{{ author_bibliography.metadata['cover-image'] }}" alt="{{article.author}}">
+                <img src="{{ SITEURL }}/{{ author_bibliography.cover_image }}" alt="{{article.author}}">
               </a>
             {% endif %}
             <div class="post-author-info">
@@ -33,9 +33,9 @@
         </div>
         <footer class="post-footer">
           <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="post-author">
-            {% if 'cover-image' in author_bibliography.metadata %}
+            {% if author_bibliography.cover_image %}
               <a href="{{ SITEURL }}/{{ article.author.url }}" class="post-author-avatar">
-                <img src="{{ SITEURL }}/{{ author_bibliography.metadata['cover-image'] }}" alt="{{article.author}}">
+                <img src="{{ SITEURL }}/{{ author_bibliography.cover_image }}" alt="{{article.author}}">
               </a>
             {% endif %}
             <div class="post-author-info">
@@ -47,9 +47,9 @@
 
               <p itemprop="description" class="post-author-bio">{{ author_bibliography.content }}</p>
 
-              {% if 'homepage' in author_bibliography.metadata %}
+              {% if author_bibliography.homepage %}
               <p class="post-author-website">
-                <a rel="nofollow" href="{{ author_bibliography.metadata['homepage'] }}">
+                <a rel="nofollow" href="{{ author_bibliography.homepage }}">
                   {{ author_bibliography.metadata['homepage'] }}
                 </a>
               </p>
