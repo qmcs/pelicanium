@@ -95,7 +95,7 @@
           {% for title, link in SOCIAL %}
             <li class="drawer-list-item">
               <a data-pjax="" href="{{ link }}">
-                <i class="fa fa-code"></i> {{ title }}
+                <i class="fa fa-{{ title|lower }}"></i> {{ title }}
               </a>
             </li>
           {% endfor %}
