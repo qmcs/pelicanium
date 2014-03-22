@@ -137,6 +137,7 @@
               <section class="wrapper" tabindex="0">
                 <div class="wrapper-container">
                   {% block content %} {% endblock %}
+                  {% include 'footer.html' %}
                 </div>
               </section>
             {% endblock %}
@@ -144,8 +145,6 @@
         </div>
       </div>
     </main>
-
-    {#{ghost_foot}#}
 
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js//56c2364f.foot-scripts.min.js"></script>
 
