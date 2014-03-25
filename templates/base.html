@@ -78,9 +78,10 @@
 
           <li class="drawer-list-divider"></li>
 
-          {% if DISPLAY_PAGES_ON_MENU -%}
+          {% set PAGES_WITH_URL = PAGES|selectattr('url') %}
+          {% if DISPLAY_PAGES_ON_MENU and PAGES_WITH_URL %}
             <li class="drawer-list-item drawer-list-title">Pages</li>
-            {% for pg in PAGES %}
+            {% for pg in PAGES_WITH_URL %}
               <li class="drawer-list-item">
                 <a href="{{ SITEURL }}/{{ pg.url }}">
                   <i class="fa fa-file"></i>{{ pg.title }}
