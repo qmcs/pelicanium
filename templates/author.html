@@ -1,11 +1,33 @@
 {% extends "index.html" %}
 
+{% set author_page = authors_info.get(author) %}
+
 {% block featured %}
   <section>
-    <h2>{{ author }}</h2>
+    <h1>
+      {{ author }}
+      {% if author_page %}
+        {% for s, link in author_page.metadata.items() %}
+          {% if s.startswith('service__') %}
+            {% set service = s[9:] %}
+            <a href="{{ link }}"><i class="fa fa-{{ service }}"></i></a>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </h1>
+
     <p>
-      {{ authors_info.get(author).content }}
+      {% if author_page.cv %}
+        <a href="{{ SITEURL }}/static/cv/{{ author_page.cv }}">
+          <i class="fa fa-briefcase"></i> CV
+        </a>
+      {% endif %}
+    </p>
+
+    <p>
+      {{ author_page.content }}
     </p>
     <hr>
   </section>
+
 {% endblock %}
