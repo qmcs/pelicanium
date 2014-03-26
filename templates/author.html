@@ -4,29 +4,31 @@
 
 {% block featured %}
   <section>
-    <h1>
-      {{ author }}
+    <h1>{{ author }}</h1>
+
+    <ul class="post-meta-list">
+      {% if author_page.cv %}
+        <li class="post-meta-item">
+          <a href="{{ SITEURL }}/static/cv/{{ author_page.cv }}">
+            CV
+          </a>
+        </li>
+      {% endif %}
+
       {% if author_page %}
         {% for s, link in author_page.metadata.items() %}
           {% if s.startswith('service__') %}
             {% set service = s[9:] %}
-            <a href="{{ link }}"><i class="fa fa-{{ service }}"></i></a>
+            <li class="post-meta-item">
+              <a href="{{ link }}"><i class="fa fa-{{ service }}"></i></a>
+            </li>
           {% endif %}
         {% endfor %}
       {% endif %}
-    </h1>
+    </ul>
 
-    <p>
-      {% if author_page.cv %}
-        <a href="{{ SITEURL }}/static/cv/{{ author_page.cv }}">
-          <i class="fa fa-briefcase"></i> CV
-        </a>
-      {% endif %}
-    </p>
+    {{ author_page.content }}
 
-    <p>
-      {{ author_page.content }}
-    </p>
     <hr>
   </section>
 
