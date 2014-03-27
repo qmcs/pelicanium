@@ -3,7 +3,7 @@
 {% block content %}
   <section id="content" class="body">
     {% for author, articles in authors|sort %}
-      <h2><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a> ({{ articles | count }})</h2>
+      <h2><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></h2>
       <p>
         {{ authors_info.get(author).summary }}
       </p>
