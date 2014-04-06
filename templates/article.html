@@ -55,6 +55,15 @@
               </p>
               {% endif %}
 
+              {% if article.category %}
+                <p class="post-info">
+                  <b class="post-info-title">Published in</b>
+                  <a href="{{ SITEURL }}/{{ article.category.url }}">
+                    {{ article.category }}
+                  </a>
+                </p>
+              {% endif %}
+
               <p class="post-info">
                 <b class="post-info-title">Published on</b>
                 <time datetime="{{ article.date.isoformat() }}" class="post-date">
