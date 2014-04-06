@@ -23,3 +23,7 @@ div .highlight {
 div .highlight, pre {
     background: #f5f2f0;
 }
+
+div .highlight, pre, span {
+    white-space: pre;
+}
