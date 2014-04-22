@@ -121,7 +121,8 @@
       <div class="surface">
         <div class="surface-container">
           <div data-pjax-container class="content">
-            {% block content_wrapper %}
+
+            {% block banner %}
 
               <aside role="banner" class="cover">
                 {#TODO: config#}
@@ -136,6 +137,10 @@
                   {% if SITESUBTITLE %}<p class="cover-description">{{ SITESUBTITLE }}</p>{% endif %}
                 </div>
               </aside>
+
+            {% endblock %}
+
+            {% block content_wrapper %}
 
               <section class="wrapper" tabindex="0">
                 <div class="wrapper-container">
