@@ -1,0 +1,19 @@
+{% extends "article.html" %}
+
+{% block banner %}
+<aside role="banner" class="article-cover">
+  {#TODO: config#}
+  {#<div {{#if @blog.cover}}data-load-image="{{@blog.cover}}"{{/if}} class="cover-image"></div>#}
+  <div data-load-image="{{ SITEURL }}/{{ 'static/article_covers/' + article.cover if article.cover else THEME_STATIC_DIR + '/cover.jpg' }}"  class="cover-image"></div>
+  <div class="article-cover-container">
+    <a href="{{ SITEURL }}" class="cover-logo" data-pjax>
+      {#TODO: config#}
+      <!-- <img src="{{ SITEURL }}/{{ LOGO if LOGO else THEME_STATIC_DIR + '/logo.jpg' }}" alt="Blog Logo"> -->
+    </a>
+    <h1 class="article-cover-title">{{ article.title|striptags }}</h1>
+    {% if SITESUBTITLE %}<p class="cover-description"><!-- {{ SITESUBTITLE }} --></p>{% endif %}
+  </div>
+</aside>
+{% endblock %}
+
+{% block post_title %}{% endblock %}
