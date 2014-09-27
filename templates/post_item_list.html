@@ -12,7 +12,13 @@
 
   {% if DISQUS_SITENAME %}
     <li class="post-meta-item">
-      <a href="{{ SITEURL }}/{{ article.url }}#disqus_thread">Comments</a>.
-  </li>
+      <a href="{{ SITEURL }}/{{ article.url }}#disqus_thread">Comments</a>
+    </li>
+  {% endif %}
+
+  {% if EDIT_CONTENT_URL %}
+    <li class="post-meta-item">
+      <a href="{{ article.edit_url }}">Edit</a>
+    </li>
   {% endif %}
 </ul>

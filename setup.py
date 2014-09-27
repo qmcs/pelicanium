@@ -29,6 +29,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'pelican',
-        'pelican_extended_authors'
+        'pelican-edit-url',
+        'pelican_extended_authors',
     ],
 )
