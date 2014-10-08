@@ -1,0 +1,14 @@
+{% if DISQUS_SITENAME %}
+  <section class="post-comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_identifier = "{{ output_file }}";
+      var disqus_url = "{{ SITEURL }}/{{ output_file }}";
+      (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section>
+{% endif %}
